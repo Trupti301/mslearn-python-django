@@ -14,7 +14,7 @@ variables:
   webAppName: 'python-cicd-17742'
 
   # Agent VM image name
-  name: 'MyAgentPool'
+  name: 'Azure Pipelines'
 
   # Environment name
   environmentName: 'python-cicd-17742'
@@ -31,7 +31,7 @@ stages:
   jobs:
   - job: BuildJob
     pool:
-      name: 'MyAgentPool'
+      name: 'Azure Pipelines'
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -84,7 +84,7 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      vmImage: $(vmImageName)
+      name: $(Azure Pipelines)
     environment: $(environmentName)
     strategy:
       runOnce:
